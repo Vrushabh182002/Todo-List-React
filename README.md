@@ -29,27 +29,21 @@ Follow these instructions to get a copy of the project up and running on your lo
 
 1. Clone the repository:
 
-```
 git clone https://github.com/Vrushabh182002/Todo-List-React.git
-```
 
 2. Navigate into the project directory:
 
-```
+
 cd react-todo-list
-```
+
 
 3. Install dependencies:
 
-```
 npm install
-```
 
 4. Start the development server:
 
-```
 npm start
-```
 
 5. Open your web browser and visit `http://localhost:3000` to view the application.
 
@@ -65,5 +59,3 @@ npm start
 Contributions are welcome! Please feel free to submit a pull request.
 
 ```
-
-Make sure to replace placeholders like `Vrushabh182002` with actual values relevant to your project. Additionally, customize the sections as needed to fit your project's specifics.
