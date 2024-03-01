@@ -33,6 +33,7 @@ const Content = () => {
   const handleChange =(id) =>{
     const listItems = items.map((i) => i.id === id ? {...i,checked : !i.checked} : i);
     setItems(listItems);
+    localStorage.setItem('To-Do List', JSON.stringify(listItems));
   }
   return (
     <main>
@@ -47,7 +48,10 @@ const Content = () => {
             checked={i.checked}
             onChange={()=> handleChange(i.id)}
             />
-            <label>{i.item}</label>
+            <label
+              onClick={ ()=>handleChange(i.id)}
+              style={(i.checked)?{textDecoration:"line-through"} : null }
+            >{i.item}</label>
             <FaTrash 
               role="button" 
               tabIndex="0"
