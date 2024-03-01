@@ -1,4 +1,4 @@
-```markdown
+
 # React Todo List
 
 This is a simple Todo List application built using React. It allows users to add, remove, and mark tasks as completed.
@@ -28,23 +28,23 @@ Follow these instructions to get a copy of the project up and running on your lo
 ### Installing
 
 1. Clone the repository:
-
+```markdown
 git clone https://github.com/Vrushabh182002/Todo-List-React.git
-
+```
 2. Navigate into the project directory:
 
-
+```
 cd react-todo-list
-
+```
 
 3. Install dependencies:
-
+```
 npm install
-
+```
 4. Start the development server:
-
+```
 npm start
-
+```
 5. Open your web browser and visit `http://localhost:3000` to view the application.
 
 ## Usage
