@@ -33,32 +33,40 @@ const Content = () => {
   const handleChange =(id) =>{
     const listItems = items.map((i) => i.id === id ? {...i,checked : !i.checked} : i);
     setItems(listItems);
-    localStorage.setItem('To-Do List', JSON.stringify(listItems));
+    localStorage.setItems('To-Do List', JSON.stringify(listItems));
+  }
+
+  const handleDelete =(id) =>{
+    const removeItems = items.filter((i)=> i.id !== id );
+    setItems(removeItems);
+    localStorage.setItems('To-Do List', JSON.stringify(removeItems));
   }
   return (
     <main>
-      {/* <p>Hello, { name }</p>
-      <button onClick={ nameChange }>Change Name</button>
-      <button onClick={ btnClick }>Click me!</button> */}
-      <ul>
-        {items.map((i)=>(
-          <li className="item" key={i.id}>
-            <input 
-            type="checkbox"
-            checked={i.checked}
-            onChange={()=> handleChange(i.id)}
-            />
-            <label
-              onClick={ ()=>handleChange(i.id)}
-              style={(i.checked)?{textDecoration:"line-through"} : null }
-            >{i.item}</label>
-            <FaTrash 
-              role="button" 
-              tabIndex="0"
-            />
-          </li>
-        ))}
-      </ul>
+      {items.length ? (
+        <ul>
+          {items.map((i)=>(
+            <li className="item" key={i.id}>
+              <input 
+              type="checkbox"
+              checked={i.checked}
+              onChange={()=> handleChange(i.id)}
+              />
+              <label
+                onClick={ ()=>handleChange(i.id)}
+                style={(i.checked)?{textDecoration:"line-through"} : null }
+              >{i.item}</label>
+              <FaTrash 
+                role="button" 
+                onClick={()=>handleDelete(i.id)}
+                tabIndex="0"
+              />
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <p className="empty-msg">Your List is  Empty! Add an Item</p>
+      )}
     </main>
   )
 }

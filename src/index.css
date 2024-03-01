@@ -115,3 +115,8 @@ ul li::before {
   color: red;
   outline: none;
 }
+
+.empty-msg{
+  margin-top: auto;
+  margin-bottom: 1rem;
+}
