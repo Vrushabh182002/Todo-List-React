@@ -29,6 +29,11 @@ const Content = () => {
       item: "Juice"
     }
   ]);
+
+  const handleChange =(id) =>{
+    const listItems = items.map((i) => i.id === id ? {...i,checked : !i.checked} : i);
+    setItems(listItems);
+  }
   return (
     <main>
       {/* <p>Hello, { name }</p>
@@ -40,6 +45,7 @@ const Content = () => {
             <input 
             type="checkbox"
             checked={i.checked}
+            onChange={()=> handleChange(i.id)}
             />
             <label>{i.item}</label>
             <FaTrash 
