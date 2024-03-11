@@ -117,6 +117,7 @@ ul li::before {
 }
 
 .empty-msg{
-  margin-top: auto;
-  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  height: calc(100vh - 96px); 
 }
