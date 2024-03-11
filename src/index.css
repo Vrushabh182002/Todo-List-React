@@ -23,13 +23,14 @@ body {
   align-items: center;
   justify-content: center;
   border: 1px solid mediumblue;
-  height: calc(100vh - 2px);
+  height: calc(100vh - 5px);
   max-width: 500px;
 }
 
 header{
   width: 100%;
-  padding: 0.45em;
+  margin-top: 1px;
+  padding: 0.35rem;
   background-color: mediumblue;
   color: aliceblue;
   display: flex;
@@ -50,7 +51,7 @@ main{
 
 footer{
   width: 100%;
-  padding: 0.5rem;
+  padding: 0.35rem;
   display: grid;
   flex-direction: column;
   place-content: center;
