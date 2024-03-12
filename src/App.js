@@ -1,40 +1,48 @@
 import Header from './Header';
+import AddItems from './AddItems';
 import Content from './Content';
 import Footer from './Footer';
 import { useState } from "react";
 function App() {
-  const  [items ,setItems]=useState([
-    {
-      id: 1,
-      checked: false,
-      item: "Milk"
-    },
-    {
-      id: 2,
-      checked: false,
-      item: "Bread"
-    },
-    {
-      id: 3,
-      checked: true,
-      item: "Juice"
-    }
-  ]);
+  const  [items ,setItems]=useState(JSON.parse(localStorage.getItem('To-Do List')));
+
+  const [newItem, setNewItem] = useState('');
+
+  const savingItems = (newItems) =>{
+    setItems(newItems);
+    localStorage.setItem('To-Do List', JSON.stringify(newItems));
+  }
+  const addItem = (item) =>{
+    const id = items.length ? items[items.length-1].id +1 : 1;
+    const myNewItem = {id, checked:false, item };
+    const listItems = [...items, myNewItem];
+    savingItems(listItems);
+  }
 
   const handleChange =(id) =>{
     const listItems = items.map((i) => i.id === id ? {...i,checked : !i.checked} : i);
-    setItems(listItems);
-    localStorage.setItem('To-Do List', JSON.stringify(listItems));
+    savingItems(listItems);
   }
 
   const handleDelete =(id) =>{
     const removeItems = items.filter((i)=> i.id !== id );
-    setItems(removeItems);
-    localStorage.setItem('To-Do List', JSON.stringify(removeItems));
+    savingItems(removeItems);
+  }
+
+  const handleSubmit =(e)=>{
+    e.preventDefault();
+    if(!newItem) return;
+    addItem(newItem);
+    setNewItem('');
   }
   return (
     <div className="App">
       <Header />
+      <AddItems 
+        newItem={newItem}
+        setNewItem={setNewItem}
+        handleSubmit={handleSubmit}
+        />
       <Content 
         items={items}
         handleChange={handleChange}
