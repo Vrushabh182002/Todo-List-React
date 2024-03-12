@@ -1,5 +1,3 @@
-
-
 import ItemList from "./ItemList";
 const Content = ({ items, handleChange, handleDelete}) => {
   return (
