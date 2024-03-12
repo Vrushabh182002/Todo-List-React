@@ -165,3 +165,28 @@ button:active{
   color: white;
   outline: none;
 }
+
+.searchForm{
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  margin: 0.5rem 0 0;
+  padding: 0 0.5rem 0.25rem;
+  border-bottom: 1px solid #eee;
+}
+
+.searchForm label{
+  position: absolute;
+  left: -999999px;
+}
+
+.searchForm input[type="text"]{
+  flex-grow: 1;
+  max-width: calc(100% + 30px);
+  min-height: 48px;
+  font-size: 1rem;
+  padding: 0.25rem;
+  border-radius: 0.25rem;
+  margin-right: 0.25rem;
+  outline: none;
+}
