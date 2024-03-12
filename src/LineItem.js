@@ -1,21 +1,21 @@
 import { FaTrash } from "react-icons/fa";
-const LineItem = ({ i, handleChange, handleDelete}) => {
+const LineItem = ({ item, handleChange, handleDelete}) => {
   return (
-    <li className="item" key={i.id}>
+    <li className="item" key={item.id}>
         <input 
         type="checkbox"
-        checked={i.checked}
-        onChange={()=> handleChange(i.id)}
+        checked={item.checked}
+        onChange={()=> handleChange(item.id)}
         />
         <label
-        onClick={ ()=>handleChange(i.id)}
-        style={(i.checked)?{textDecoration:"line-through"} : null }
-        >{i.item}</label>
+        onClick={ ()=>handleChange(item.id)}
+        style={(item.checked)?{textDecoration:"line-through"} : null }
+        >{item.item}</label>
         <FaTrash 
         role="button" 
-        onClick={()=>handleDelete(i.id)}
+        onClick={()=>handleDelete(item.id)}
         tabIndex="0"
-        aria-label={`delete ${i.item}`}
+        aria-label={`delete ${item.item}`}
         />
     </li>
   )
