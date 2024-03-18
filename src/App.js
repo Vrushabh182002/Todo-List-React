@@ -3,34 +3,34 @@ import SearchItems from './SearchItems';
 import AddItems from './AddItems';
 import Content from './Content';
 import Footer from './Footer';
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 function App() {
 
-  const  [items ,setItems]=useState(JSON.parse(localStorage.getItem('To-Do List')));
+  const  [items ,setItems]=useState(JSON.parse(localStorage.getItem('To-Do List')) || []);
 
   const [newItem, setNewItem] = useState('');
   const [search, setSearch] = useState('');
-  const savingItems = (newItems) =>{
-    setItems(newItems);
-    localStorage.setItem('To-Do List', JSON.stringify(newItems));
-  }
+
+  useEffect(()=>{
+    localStorage.setItem("To-Do List", JSON.stringify(items));
+  },[items]);
 
   const addItem = (item) =>{
     const id = items.length ? items[items.length-1].id +1 : 1;
     const myNewItem = {id, checked:false, item };
     const listItems = [...items, myNewItem];
-    savingItems(listItems);
+    setItems(listItems);
   }
 
   const handleChange =(id) =>{
     const listItems = items.map((i) => i.id === id ? {...i,checked : !i.checked} : i);
-    savingItems(listItems);
+    setItems(listItems);
   }
 
   const handleDelete =(id) =>{
     const removeItems = items.filter((i)=> i.id !== id );
-    savingItems(removeItems);
+    setItems(removeItems);
   }
 
   const handleSubmit =(e)=>{
