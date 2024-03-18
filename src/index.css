@@ -23,6 +23,7 @@ body {
   align-items: center;
   justify-content: center;
   border: 1px solid mediumblue;
+  width: 100%;
   height: calc(100vh - 5px);
   max-width: 900px;
 }
@@ -34,7 +35,7 @@ header{
   background-color: mediumblue;
   color: aliceblue;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
 }
 
@@ -44,16 +45,15 @@ main{
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  gap: .75rem;
   flex-grow: 1;
   margin-top: 5px;
+  overflow-y: auto;
 }
 
 footer{
   width: 100%;
   padding: 0.35rem;
   display: grid;
-  flex-direction: column;
   place-content: center;
   background: mediumblue;
   color: aliceblue;
@@ -137,7 +137,7 @@ ul li::before {
 
 .addForm input[type="text"]{
   flex-grow: 1;
-  max-width: calc(100% - 30px);
+  max-width: calc(100% - 50px);
   min-height: 48px;
   font-size: 1rem;
   padding: 0.25rem;
@@ -157,6 +157,7 @@ button{
   cursor: pointer;
 }
 
+button:focus,
 button:hover,
 button:active{
   background-color: green;
